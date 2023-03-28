@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="aa8-M7-ghh">
             <objects>
-                <viewController id="M2h-A9-6aX" sceneMemberID="viewController">
+                <viewController title="Map" id="M2h-A9-6aX" customClass="MapViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnN-lT-bjd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,16 +30,16 @@
                             <constraint firstItem="b9X-cD-0my" firstAttribute="centerX" secondItem="bnN-lT-bjd" secondAttribute="centerX" id="hHK-p2-UVw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="uqE-bB-Ecx"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="sample-881-globe" selectedImage="sample-881-globe" id="uqE-bB-Ecx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ff1-50-UtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-380" y="316"/>
         </scene>
-        <!--Item 2-->
+        <!--Settings-->
         <scene sceneID="iPA-2C-B5Q">
             <objects>
-                <viewController id="JVN-40-mUI" sceneMemberID="viewController">
+                <viewController title="Settings" id="JVN-40-mUI" customClass="SettingsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aGA-GO-4Be">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,16 +58,16 @@
                             <constraint firstItem="8UF-RS-tsF" firstAttribute="centerX" secondItem="aGA-GO-4Be" secondAttribute="centerX" id="smw-Ub-0xo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="xPm-6e-RME"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="sample-834-bolt" selectedImage="sample-834-bolt" id="xPm-6e-RME"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5F-qh-ZAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="507.63358778625951" y="-99.295774647887328"/>
         </scene>
-        <!--Item 1-->
+        <!--Contacts-->
         <scene sceneID="cyH-7u-LQJ">
             <objects>
-                <viewController id="DV2-yH-VbJ" sceneMemberID="viewController">
+                <viewController title="Contacts" id="DV2-yH-VbJ" customClass="ContactsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hhl-Wx-pKd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
                             <constraint firstItem="RsP-AU-0TK" firstAttribute="centerX" secondItem="Hhl-Wx-pKd" secondAttribute="centerX" id="wSS-eb-Mob"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="2QJ-rq-fw8"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="2QJ-rq-fw8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBC-9o-Uaa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,6 +113,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="sample-834-bolt" width="26" height="28"/>
+        <image name="sample-881-globe" width="28" height="28"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

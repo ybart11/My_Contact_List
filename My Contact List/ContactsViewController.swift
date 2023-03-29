@@ -8,7 +8,8 @@
 import UIKit
 
 class ContactsViewController: UIViewController {
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

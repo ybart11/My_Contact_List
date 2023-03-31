@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
@@ -21,11 +22,40 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
     
+    var currentContact: Contact? // Hold information about the Contact entity edited
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate // Sets up reference to the App Delegate that will be used to access Core Data functionality
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.changeEditMode(self)
+        
+        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtPhone, txtCell, txtEmail]
+        
+        for textfield in textFields {
+            textfield.addTarget(self,
+                                action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
+                                for: UIControl.Event.editingDidEnd)
+        }
+        
+        func textFieldShouldEndEditing (_ textField: UITextField) -> Bool {
+            if currentContact == nil {
+                let context = appDelegate.persistentContainer.viewContext
+                currentContact = Contact(context: context)
+            }
+            
+            currentContact?.contactName = txtName.text
+            currentContact?.streetAddress = txtAddress.text
+            currentContact?.city = txtCity.text
+            currentContact?.state = txtState.text
+            currentContact?.zipCode = txtZip.text
+            currentContact?.cellNumber = txtCell.text
+            currentContact?.phoneNumber = txtPhone.text
+            currentContact?.email = txtEmail.text
+            
+            return true
+        }
     }
     
     override func didReceiveMemoryWarning() {

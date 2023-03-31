@@ -23,10 +23,31 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        // Set the UI based on values in UserDefaults
+        let settings = UserDefaults.standard
+        swAscending.setOn(settings.bool(forKey: "sortDirectionAscending"), animated: true)
+        
+        let sortField = settings.string(forKey: "sortField")
+        var i = 0
+        for field in sortOrderItems {
+            if field == sortField {
+                
+                // inComponent means the same as column which there is only one
+                pckSortField.selectRow(i, inComponent: 0, animated: false)
+            }
+            i += 1
+        }
+        
+        // To have the Picker View change
+        pckSortField.reloadComponent(0)
+    }
     
     
     @IBAction func sortDirectionChanged(_ sender: Any) {
+        let settings = UserDefaults.standard
+        settings.set(swAscending.isOn, forKey: "sortDirectionAscending")
+        settings.synchronize()
     }
     
     // MARK: UIPickerViewDelegate Methods
@@ -48,7 +69,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     // If the user chooses from the pickerview, it calls this function
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("Chosen item: \(sortOrderItems[row])")
+        let sortField = sortOrderItems[row]
+        let settings = UserDefaults.standard
+        settings.set(sortField, forKey: "sortField")
+        settings.synchronize()
     }
     
 

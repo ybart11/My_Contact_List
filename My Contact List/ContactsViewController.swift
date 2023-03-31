@@ -27,41 +27,50 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.changeEditMode(self)
         
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtPhone, txtCell, txtEmail]
         
         for textfield in textFields {
-            textfield.addTarget(self,
-                                action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
-                                for: UIControl.Event.editingDidEnd)
+            textfield.addTarget(self, action: #selector(ContactsViewController.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+    }
+    }
+        
+    func textFieldShouldEndEditing (_ textField: UITextField) -> Bool {
+        if currentContact == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            currentContact = Contact(context: context)
         }
         
-        func textFieldShouldEndEditing (_ textField: UITextField) -> Bool {
-            if currentContact == nil {
-                let context = appDelegate.persistentContainer.viewContext
-                currentContact = Contact(context: context)
-            }
-            
-            currentContact?.contactName = txtName.text
-            currentContact?.streetAddress = txtAddress.text
-            currentContact?.city = txtCity.text
-            currentContact?.state = txtState.text
-            currentContact?.zipCode = txtZip.text
-            currentContact?.cellNumber = txtCell.text
-            currentContact?.phoneNumber = txtPhone.text
-            currentContact?.email = txtEmail.text
-            
-            return true
-        }
+        currentContact?.contactName = txtName.text
+        currentContact?.streetAddress = txtAddress.text
+        currentContact?.city = txtCity.text
+        currentContact?.state = txtState.text
+        currentContact?.zipCode = txtZip.text
+        currentContact?.cellNumber = txtCell.text
+        currentContact?.phoneNumber = txtPhone.text
+        currentContact?.email = txtEmail.text
+        
+        return true
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
     }
+    
+    @objc func saveContact() {
+        appDelegate.saveContext() // Saves object to database
+        
+        // Change scene from editing to viewing mode
+        sgmtEditMode.selectedSegmentIndex = 0
+        changeEditMode(self)
+    }
+    
+    // MARK: edit changes
     
     
     @IBAction func changeEditMode(_ sender: Any) {
@@ -72,13 +81,19 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
 //                textField.borderStyle = UITextField.BorderStyle.none
             }
             btnChange.isHidden = true
+            navigationItem.rightBarButtonItem = nil
         }
         else if sgmtEditMode.selectedSegmentIndex == 1 {
             for textField in textFields {
                 textField.isEnabled = true
-//                textField.borderStyle = UITextField.BorderStyle.roundedRect
+                textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
             btnChange.isHidden = false
+            
+            // Creates button in the left spot of the navigation bar with the text Save and associates it with the saveContact method
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+                                                                target: self,
+                                                                action: #selector(self.saveContact))
         }
     }
 }

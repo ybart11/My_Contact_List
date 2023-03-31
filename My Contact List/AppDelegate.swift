@@ -17,21 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UserDefaults.standard
         
         // Checks if 'sortField' has been set. If not, it stores 'City' as the value in sortField
-        if settings.string(forKey: "sortField") == nil {
-            settings.set("City", forKey: "sortField")
+        if settings.string(forKey: Constants.kSortField) == nil {
+            settings.set("City", forKey: Constants.kSortField)
         }
         
         // Checks if 'sortDirectionAscending' has been set. If not, it defaults to true
-        if settings.string(forKey: "sortDirectionAscending") == nil {
-            settings.set(true, forKey: "sortDirectionAscending")
+        if settings.string(forKey: Constants.kSortDirectionAscending) == nil {
+            settings.set(true, forKey: Constants.kSortDirectionAscending)
         }
         
         // Ensures that any changes are saved back to the settings file
         settings.synchronize()
         
         // Write the values of the two settings fields to NSLog
-        print("Sort field: \(settings.string(forKey: "sortField")!)") // Retrieve string 
-        print("Sort direction: \(settings.bool(forKey: "sortDirectionAscending"))") // Retrieve Boolean value
+        NSLog("Sort field: %@", settings.string(forKey: Constants.kSortField)!) // Retrieve string
+        NSLog("Sort direction: \(settings.bool(forKey: Constants.kSortDirectionAscending))") // Retrieve Boolean value
         return true
     }
 

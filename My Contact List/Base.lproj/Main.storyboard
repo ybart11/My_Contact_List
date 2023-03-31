@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ff1-50-UtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-380" y="316"/>
+            <point key="canvasLocation" x="-399" y="329"/>
         </scene>
         <!--Settings-->
         <scene sceneID="iPA-2C-B5Q">
@@ -54,7 +54,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-n1-INz">
-                                        <rect key="frame" x="0.0" y="75" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="74.333333333333343" width="320" height="216.00000000000003"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yI9-mS-qq6">
                                         <rect key="frame" x="69.666666666666643" y="344.33333333333326" width="180.33333333333337" height="31"/>
@@ -67,6 +67,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r6E-DB-oui">
                                                 <rect key="frame" x="131.33333333333331" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="sortDirectionChanged:" destination="JVN-40-mUI" eventType="valueChanged" id="uY4-Uo-Wsu"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -81,10 +84,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="sample-834-bolt" selectedImage="sample-834-bolt" id="xPm-6e-RME"/>
+                    <connections>
+                        <outlet property="pckSortField" destination="mHb-n1-INz" id="X0O-Us-SVb"/>
+                        <outlet property="swAscending" destination="r6E-DB-oui" id="P16-3U-ciC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5F-qh-ZAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1434.3511450381679" y="-99.295774647887328"/>
+            <point key="canvasLocation" x="508" y="118"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="cyH-7u-LQJ">
@@ -286,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBC-9o-Uaa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1434.3511450381679" y="-706.33802816901414"/>
+            <point key="canvasLocation" x="1436" y="-706"/>
         </scene>
         <!--Birthdate-->
         <scene sceneID="nl1-H5-gMF">
@@ -312,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNm-0z-IsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3072.5190839694656" y="-687.32394366197184"/>
+            <point key="canvasLocation" x="2343" y="-706"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4C5-Yd-Dr5">

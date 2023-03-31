@@ -39,14 +39,14 @@ class ContactsViewController: UIViewController {
         if sgmtEditMode.selectedSegmentIndex == 0 {
             for textField in textFields {
                 textField.isEnabled = false
-                textField.borderStyle = UITextField.BorderStyle.none
+//                textField.borderStyle = UITextField.BorderStyle.none
             }
             btnChange.isHidden = true
         }
         else if sgmtEditMode.selectedSegmentIndex == 1 {
             for textField in textFields {
                 textField.isEnabled = true
-                textField.borderStyle = UITextField.BorderStyle.roundedRect
+//                textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
             btnChange.isHidden = false
         }

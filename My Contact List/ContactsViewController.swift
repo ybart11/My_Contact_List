@@ -102,6 +102,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     }
     
     // MARK: Date Changed Functions
+    
     func dateChanged(date: Date) {
         if currentContact == nil {
             let context = appDelegate.persistentContainer.viewContext

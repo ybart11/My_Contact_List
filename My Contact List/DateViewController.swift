@@ -13,6 +13,10 @@ protocol DateControllerDelegate: AnyObject {
 
 class DateViewController: UIViewController {
     
+    
+    @IBOutlet weak var dtpDate: UIDatePicker!
+    
+    
     // Delegate may not always be set, so it's weak, and the type is optional (?)
     // Optional types are set to nil by default - no need for init methods
     weak var delegate: DateControllerDelegate?
@@ -21,17 +25,15 @@ class DateViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let saveButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveDate))
+        
+        self.navigationItem.rightBarButtonItem = saveButton
+        self.title = "Pick Birthdate"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func saveDate() {
+        self.delegate?.dateChanged(date: dtpDate.date)
+        self.navigationController?.popViewController(animated: true)
     }
-    */
 
 }

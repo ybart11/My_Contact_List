@@ -248,7 +248,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Change"/>
                                                         <connections>
-                                                            <segue destination="xdr-dR-4CT" kind="show" id="qUH-u4-tlJ"/>
+                                                            <segue destination="xdr-dR-4CT" kind="show" identifier="segueContactDate" id="qUH-u4-tlJ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -316,6 +316,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" Birthdate" id="7iA-tY-aFI"/>
+                    <connections>
+                        <outlet property="dtpDate" destination="Ikv-Ms-UKD" id="OMi-jO-d8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNm-0z-IsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

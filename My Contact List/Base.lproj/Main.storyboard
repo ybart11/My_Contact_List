@@ -298,7 +298,7 @@
         <!--Birthdate-->
         <scene sceneID="nl1-H5-gMF">
             <objects>
-                <viewController title="Birthdate" id="xdr-dR-4CT" sceneMemberID="viewController">
+                <viewController title="Birthdate" id="xdr-dR-4CT" customClass="DateViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFN-2k-Ba5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

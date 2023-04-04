@@ -27,14 +27,18 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         // Do any additional setup after loading the view.
         self.changeEditMode(self)
         
+//        debugPrint(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+
+        
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtPhone, txtCell, txtEmail]
         
         for textfield in textFields {
-            textfield.addTarget(self, action: #selector(ContactsViewController.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+            textfield.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
     }
     }
         

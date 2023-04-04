@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ContactsViewController: UIViewController, UITextFieldDelegate {
+class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
     
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
@@ -98,6 +98,32 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                                 target: self,
                                                                 action: #selector(self.saveContact))
+        }
+    }
+    
+    // MARK: Date Changed Functions
+    func dateChanged(date: Date) {
+        if currentContact == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            currentContact = Contact(context:  context)
+        }
+        
+        // Sets the date that was passed in from the
+        // calling controller to the birthday property in current contact
+        currentContact?.birthday = date
+        
+        // Formats the date to MM/DD/YYYY
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        // Formatter is set to label
+        lblBirthdate.text = formatter.string(from: date)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segueContactDate") {
+            let dateController = segue.destination as! DateViewController // Gets reference to destination
+            dateController.delegate = self // Sets delegate for the Date Controller to be this class
         }
     }
 }

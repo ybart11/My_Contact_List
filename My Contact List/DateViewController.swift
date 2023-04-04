@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol DateControllerDelegate: AnyObject {
+    func dateChanged(date: Date)
+}
+
 class DateViewController: UIViewController {
+    
+    // Delegate may not always be set, so it's weak, and the type is optional (?)
+    // Optional types are set to nil by default - no need for init methods
+    weak var delegate: DateControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

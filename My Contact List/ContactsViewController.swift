@@ -22,8 +22,11 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
     
-    var currentContact: Contact? // Hold information about the Contact entity edited
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate // Sets up reference to the App Delegate that will be used to access Core Data functionality
+    // Hold information about the Contact entity edited
+    var currentContact: Contact?
+    
+    // Sets up reference to the App Delegate that will be used to access Core Data functionality
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()

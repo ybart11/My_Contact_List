@@ -10,9 +10,6 @@ import CoreData
 
 class ContactsTableViewController: UITableViewController {
     
-//    let contacts = ["Carl", "Migger", "HH", "And Dee", "Brayan", "Cuzzo"]
-    
-    
     // Holds Contact objects retrieved from CoreData
     var contacts: [NSManagedObject] = []
     
@@ -21,9 +18,7 @@ class ContactsTableViewController: UITableViewController {
     // Executed once when the controller is instantiated
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        loadDataFromDatabase()
-        
+                
         self.navigationItem.leftBarButtonItem = self.editButtonItem
 
     }
@@ -89,7 +84,14 @@ class ContactsTableViewController: UITableViewController {
         // Configure the cell...
         let contact = contacts[indexPath.row] as? Contact
         cell.textLabel?.text = contact?.contactName
-        cell.detailTextLabel?.text = contact?.city
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        
+        // For birthday
+        if contact?.birthday != nil {
+            cell.detailTextLabel?.text = "Born on: " + formatter.string(from: (contact?.birthday)!)
+        }
         
         // Add accessory button to cell
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton

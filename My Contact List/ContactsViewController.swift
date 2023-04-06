@@ -94,7 +94,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             }
             btnChange.isHidden = false
             
-            // Creates button in the left spot of the navigation bar with the text Save and associates it with the saveContact method
+            // Creates button in the right spot of the navigation bar with the text Save and associates it with the saveContact method
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                                 target: self,
                                                                 action: #selector(self.saveContact))

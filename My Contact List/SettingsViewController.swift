@@ -44,10 +44,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
+    // To store the values chosen by the user
     @IBAction func sortDirectionChanged(_ sender: Any) {
         let settings = UserDefaults.standard
         settings.set(swAscending.isOn, forKey: Constants.kSortDirectionAscending)
-        settings.synchronize()
+        settings.synchronize() // Force saving
     }
     
     // MARK: UIPickerViewDelegate Methods
@@ -72,7 +73,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         let sortField = sortOrderItems[row]
         let settings = UserDefaults.standard
         settings.set(sortField, forKey: Constants.kSortField)
-        settings.synchronize()
+        settings.synchronize() // Force saving
     }
     
 

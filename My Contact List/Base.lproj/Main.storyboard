@@ -93,6 +93,35 @@
             </objects>
             <point key="canvasLocation" x="508" y="118"/>
         </scene>
+        <!--Contacts Table View Controller-->
+        <scene sceneID="TYr-o9-Kr4">
+            <objects>
+                <tableViewController id="44b-eM-3lb" customClass="ContactsTableViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="RnK-wP-52W">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" id="rj7-ZO-I38">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rj7-ZO-I38" id="H9m-eE-GBg">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="44b-eM-3lb" id="8K9-Cr-plC"/>
+                            <outlet property="delegate" destination="44b-eM-3lb" id="97r-bk-UVC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="oT1-re-UHV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxx-0V-GJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473" y="-706"/>
+        </scene>
         <!--Contacts-->
         <scene sceneID="cyH-7u-LQJ">
             <objects>
@@ -102,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m5Y-k2-sLr">
-                                <rect key="frame" x="147" y="103" width="99" height="32"/>
+                                <rect key="frame" x="147" y="59" width="99" height="32"/>
                                 <segments>
                                     <segment title="View"/>
                                     <segment title="Edit"/>
@@ -112,7 +141,7 @@
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-50-v0V">
-                                <rect key="frame" x="0.0" y="149" width="393" height="620"/>
+                                <rect key="frame" x="0.0" y="105" width="393" height="713"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-Aj-pFA">
                                         <rect key="frame" x="8" y="0.0" width="373" height="307.66666666666669"/>
@@ -293,18 +322,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBC-9o-Uaa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436" y="-706"/>
+            <point key="canvasLocation" x="2363" y="-706"/>
         </scene>
         <!--Birthdate-->
         <scene sceneID="nl1-H5-gMF">
             <objects>
                 <viewController title="Birthdate" id="xdr-dR-4CT" customClass="DateViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFN-2k-Ba5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Ikv-Ms-UKD">
-                                <rect key="frame" x="0.0" y="103" width="393" height="216"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="216"/>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iBP-bQ-Fco"/>
@@ -315,14 +344,14 @@
                             <constraint firstItem="Ikv-Ms-UKD" firstAttribute="top" secondItem="iBP-bQ-Fco" secondAttribute="top" id="ulo-7T-qca"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title=" Birthdate" id="7iA-tY-aFI"/>
+                    <navigationItem key="navigationItem" title=" Birthdate" id="7iA-tY-aFI" userLabel="Birthdate"/>
                     <connections>
                         <outlet property="dtpDate" destination="Ikv-Ms-UKD" id="OMi-jO-d8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNm-0z-IsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="-706"/>
+            <point key="canvasLocation" x="3340" y="-706"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4C5-Yd-Dr5">
@@ -355,7 +384,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="DV2-yH-VbJ" kind="relationship" relationship="rootViewController" id="Ls3-Rn-sDK"/>
+                        <segue destination="44b-eM-3lb" kind="relationship" relationship="rootViewController" id="kXU-tp-hK9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRZ-3f-jdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

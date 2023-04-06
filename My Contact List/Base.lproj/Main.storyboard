@@ -125,6 +125,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DV2-yH-VbJ" kind="show" identifier="EditContact" trigger="accessoryAction" id="gb7-r7-jkk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -414,6 +417,9 @@
             <point key="canvasLocation" x="507.63358778625951" y="-706.33802816901414"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gb7-r7-jkk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="sample-834-bolt" width="26" height="28"/>
         <image name="sample-881-globe" width="28" height="28"/>

@@ -67,7 +67,20 @@ class ContactsTableViewController: UITableViewController {
         cell.textLabel?.text = contact?.contactName
         cell.detailTextLabel?.text = contact?.city
         
+        // Add accessory button to cell
+        cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
+        
         return cell
+    }
+    
+    // Pass the selected Contact from the table
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditContact" {
+            let contactController = segue.destination as? ContactsViewController
+            let selectedRow = self.tableView.indexPath(for: sender as! UITableViewCell)?.row
+            let selectedContact = contacts[selectedRow!] as? Contact
+            contactController?.currentContact = selectedContact!
+        }
     }
 
     /*

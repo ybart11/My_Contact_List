@@ -13,7 +13,9 @@ class ContactsTableViewController: UITableViewController {
 //    let contacts = ["Carl", "Migger", "HH", "And Dee", "Brayan", "Cuzzo"]
     
     
+    // Holds Contact objects retrieved from CoreData
     var contacts: [NSManagedObject] = []
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
@@ -38,7 +40,7 @@ class ContactsTableViewController: UITableViewController {
         let request = NSFetchRequest<NSManagedObject>(entityName: "Contact")
         
         do {
-            contacts = try context.fetch(request)
+            contacts = try context.fetch(request) // an array
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

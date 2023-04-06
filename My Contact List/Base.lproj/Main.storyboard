@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="508" y="118"/>
         </scene>
-        <!--Contacts Table View Controller-->
+        <!--Contacts-->
         <scene sceneID="TYr-o9-Kr4">
             <objects>
                 <tableViewController id="44b-eM-3lb" customClass="ContactsTableViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +132,13 @@
                             <outlet property="delegate" destination="44b-eM-3lb" id="97r-bk-UVC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oT1-re-UHV"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="oT1-re-UHV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="paO-Va-gsH">
+                            <connections>
+                                <segue destination="DV2-yH-VbJ" kind="show" identifier="AddContact" id="KP8-AK-0mC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxx-0V-GJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m5Y-k2-sLr">
-                                <rect key="frame" x="147" y="59" width="99" height="32"/>
+                                <rect key="frame" x="147" y="103" width="99" height="32"/>
                                 <segments>
                                     <segment title="View"/>
                                     <segment title="Edit"/>
@@ -157,7 +163,7 @@
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-50-v0V">
-                                <rect key="frame" x="0.0" y="105" width="393" height="713"/>
+                                <rect key="frame" x="0.0" y="149" width="393" height="620"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-Aj-pFA">
                                         <rect key="frame" x="8" y="0.0" width="373" height="307.66666666666669"/>
@@ -345,11 +351,11 @@
             <objects>
                 <viewController title="Birthdate" id="xdr-dR-4CT" customClass="DateViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFN-2k-Ba5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Ikv-Ms-UKD">
-                                <rect key="frame" x="0.0" y="59" width="393" height="216"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="216"/>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iBP-bQ-Fco"/>

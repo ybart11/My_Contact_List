@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Checks if 'sortField' has been set. If not, it stores 'City' as the value in sortField
         if settings.string(forKey: Constants.kSortField) == nil {
-            settings.set("City", forKey: Constants.kSortField)
+            settings.set("city", forKey: Constants.kSortField)
         }
         
         // Checks if 'sortDirectionAscending' has been set. If not, it defaults to true

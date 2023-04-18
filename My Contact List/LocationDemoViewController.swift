@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class LocationDemoViewController: UIViewController {
+class LocationDemoViewController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var txtStreet: UITextField!
@@ -24,6 +24,8 @@ class LocationDemoViewController: UIViewController {
     
     lazy var geoCoder = CLGeocoder()
     
+    var locationManager: CLLocationManager!
+    
     @objc func dismissKeyboard() {
         // Causes the view (or one of its embedded text fields) to resign the first responder status
         view.endEditing(true)
@@ -37,7 +39,22 @@ class LocationDemoViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
+        
+        // Set up location manager
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() // Ask for permission to use location, matches Plist
 
+    }
+    
+    // Called when the location permission status changes
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            print("Permission granted")
+        }
+        else {
+            print("Permission NOT granted")
+        }
     }
     
     @IBAction func addressToCoordinates(_ sender: Any) {

@@ -30,10 +30,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         span.latitudeDelta = 0.2
         span.longitudeDelta = 0.2
         
-//        let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-        let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
-
+        let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, span: span)
         mapView.setRegion(viewRegion, animated: true)
+        
+        let mp = MapPoint(latitude: userLocation.coordinate.latitude,
+                          longitude: userLocation.coordinate.longitude)
+        
+        mp.title = "You"
+        mp.subtitle = "Are here"
+        mapView.addAnnotation(mp)
     }
     
     override func viewWillAppear(_ animated: Bool) {

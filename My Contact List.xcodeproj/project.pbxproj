@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		570BA46029DF1DFF0009D8E9 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BA45F29DF1DFF0009D8E9 /* ContactsTableViewController.swift */; };
 		57144ED029EF02130081DF8F /* LocationDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57144ECF29EF02130081DF8F /* LocationDemoViewController.swift */; };
+		57144ED229EF7FF80081DF8F /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57144ED129EF7FF80081DF8F /* MapPoint.swift */; };
 		5718409A29DBBB48005C4C7A /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718409929DBBB48005C4C7A /* DateViewController.swift */; };
 		57589D3829D71453008AF2BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57589D3729D71453008AF2BE /* Constants.swift */; };
 		57589D3B29D724AF008AF2BE /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57589D3929D724AF008AF2BE /* MyContactListModel.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		570BA45F29DF1DFF0009D8E9 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		57144ECF29EF02130081DF8F /* LocationDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDemoViewController.swift; sourceTree = "<group>"; };
+		57144ED129EF7FF80081DF8F /* MapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		5718409929DBBB48005C4C7A /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		57589D3729D71453008AF2BE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57589D3A29D724AF008AF2BE /* MyContactListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyContactListModel.xcdatamodel; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		57B8B8E929D3912100797640 = {
 			isa = PBXGroup;
 			children = (
+				57144ED129EF7FF80081DF8F /* MapPoint.swift */,
 				57B8B8F429D3912100797640 /* My Contact List */,
 				57B8B8F329D3912100797640 /* Products */,
 			);
@@ -169,6 +172,7 @@
 				57589D3829D71453008AF2BE /* Constants.swift in Sources */,
 				57589D3B29D724AF008AF2BE /* MyContactListModel.xcdatamodeld in Sources */,
 				570BA46029DF1DFF0009D8E9 /* ContactsTableViewController.swift in Sources */,
+				57144ED229EF7FF80081DF8F /* MapPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

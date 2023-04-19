@@ -15,6 +15,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var sgmtMapType: UISegmentedControl!
+    
+    
     var contacts: [Contact] = []
     
 
@@ -100,5 +103,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBAction func findUser(_ sender: Any) {
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
+    
+    @IBAction func mapTypeChanged(_ sender: Any) {
+        switch sgmtMapType.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default: break
+        }
+    }
+    
 
 }

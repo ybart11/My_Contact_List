@@ -30,21 +30,37 @@
                                     <action selector="findUser:" destination="M2h-A9-6aX" eventType="touchUpInside" id="48l-tS-Qbf"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uLp-mf-9sa">
+                                <rect key="frame" x="83" y="738" width="227" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" systemColor="linkColor"/>
+                                <connections>
+                                    <action selector="mapTypeChanged:" destination="M2h-A9-6aX" eventType="valueChanged" id="VlF-1x-kmD"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0mv-7I-C0X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uLp-mf-9sa" firstAttribute="centerX" secondItem="bnN-lT-bjd" secondAttribute="centerX" id="BTa-yS-zTi"/>
                             <constraint firstItem="0mv-7I-C0X" firstAttribute="bottom" secondItem="Uub-1j-BYr" secondAttribute="bottom" id="Cc6-ch-Ytn"/>
                             <constraint firstItem="Uub-1j-BYr" firstAttribute="leading" secondItem="0mv-7I-C0X" secondAttribute="leading" id="R1w-n9-aM0"/>
                             <constraint firstItem="Uub-1j-BYr" firstAttribute="top" secondItem="0mv-7I-C0X" secondAttribute="top" id="a6M-U3-Qkw"/>
                             <constraint firstItem="fgz-vQ-pST" firstAttribute="top" secondItem="0mv-7I-C0X" secondAttribute="top" constant="20" id="dAy-mw-8Zk"/>
                             <constraint firstItem="0mv-7I-C0X" firstAttribute="trailing" secondItem="Uub-1j-BYr" secondAttribute="trailing" id="n1V-8Y-raP"/>
+                            <constraint firstItem="0mv-7I-C0X" firstAttribute="bottom" secondItem="uLp-mf-9sa" secondAttribute="bottom" id="nVc-W8-idJ"/>
                             <constraint firstItem="fgz-vQ-pST" firstAttribute="leading" secondItem="0mv-7I-C0X" secondAttribute="leading" constant="20" id="t8l-p0-HQe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="sample-881-globe" selectedImage="sample-881-globe" id="uqE-bB-Ecx"/>
                     <connections>
                         <outlet property="mapView" destination="Uub-1j-BYr" id="Pgm-rK-Ukw"/>
+                        <outlet property="sgmtMapType" destination="uLp-mf-9sa" id="Ck8-dp-5JU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ff1-50-UtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -683,6 +699,9 @@
     <resources>
         <image name="sample-834-bolt" width="26" height="28"/>
         <image name="sample-881-globe" width="28" height="28"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

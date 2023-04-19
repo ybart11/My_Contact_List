@@ -21,6 +21,15 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-vQ-pST">
+                                <rect key="frame" x="20" y="79" width="90" height="35"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Find Me!">
+                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="findUser:" destination="M2h-A9-6aX" eventType="touchUpInside" id="48l-tS-Qbf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0mv-7I-C0X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -28,7 +37,9 @@
                             <constraint firstItem="0mv-7I-C0X" firstAttribute="bottom" secondItem="Uub-1j-BYr" secondAttribute="bottom" id="Cc6-ch-Ytn"/>
                             <constraint firstItem="Uub-1j-BYr" firstAttribute="leading" secondItem="0mv-7I-C0X" secondAttribute="leading" id="R1w-n9-aM0"/>
                             <constraint firstItem="Uub-1j-BYr" firstAttribute="top" secondItem="0mv-7I-C0X" secondAttribute="top" id="a6M-U3-Qkw"/>
+                            <constraint firstItem="fgz-vQ-pST" firstAttribute="top" secondItem="0mv-7I-C0X" secondAttribute="top" constant="20" id="dAy-mw-8Zk"/>
                             <constraint firstItem="0mv-7I-C0X" firstAttribute="trailing" secondItem="Uub-1j-BYr" secondAttribute="trailing" id="n1V-8Y-raP"/>
+                            <constraint firstItem="fgz-vQ-pST" firstAttribute="leading" secondItem="0mv-7I-C0X" secondAttribute="leading" constant="20" id="t8l-p0-HQe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="sample-881-globe" selectedImage="sample-881-globe" id="uqE-bB-Ecx"/>
@@ -672,6 +683,9 @@
     <resources>
         <image name="sample-834-bolt" width="26" height="28"/>
         <image name="sample-881-globe" width="28" height="28"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

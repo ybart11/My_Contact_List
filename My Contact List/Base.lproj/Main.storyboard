@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bKh-MH-saN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YO4-x8-7rK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,21 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9X-cD-0my">
-                                <rect key="frame" x="168" y="408" width="57.333333333333343" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uub-1j-BYr">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0mv-7I-C0X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b9X-cD-0my" firstAttribute="centerY" secondItem="bnN-lT-bjd" secondAttribute="centerY" id="PAN-XT-Qn2"/>
-                            <constraint firstItem="b9X-cD-0my" firstAttribute="centerX" secondItem="bnN-lT-bjd" secondAttribute="centerX" id="hHK-p2-UVw"/>
+                            <constraint firstItem="0mv-7I-C0X" firstAttribute="bottom" secondItem="Uub-1j-BYr" secondAttribute="bottom" id="Cc6-ch-Ytn"/>
+                            <constraint firstItem="Uub-1j-BYr" firstAttribute="leading" secondItem="0mv-7I-C0X" secondAttribute="leading" id="R1w-n9-aM0"/>
+                            <constraint firstItem="Uub-1j-BYr" firstAttribute="top" secondItem="0mv-7I-C0X" secondAttribute="top" id="a6M-U3-Qkw"/>
+                            <constraint firstItem="0mv-7I-C0X" firstAttribute="trailing" secondItem="Uub-1j-BYr" secondAttribute="trailing" id="n1V-8Y-raP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="sample-881-globe" selectedImage="sample-881-globe" id="uqE-bB-Ecx"/>
+                    <connections>
+                        <outlet property="mapView" destination="Uub-1j-BYr" id="Pgm-rK-Ukw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ff1-50-UtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

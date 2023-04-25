@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
+class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
@@ -21,12 +21,14 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
-    
+    @IBOutlet weak var imgContactPicture: UIImageView!
+        
     // Hold information about the Contact entity edited
     var currentContact: Contact?
     
     // Sets up reference to the App Delegate that will be used to access Core Data functionality
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,5 +145,28 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             let dateController = segue.destination as! DateViewController // Gets reference to destination
             dateController.delegate = self // Sets delegate for the Date Controller to be this class
         }
+    }
+    
+    // MARK: Take Picture Functions
+    
+    // Executed when user taps the camera button to bring up the camera controller
+    @IBAction func changePicture(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraController = UIImagePickerController()
+            cameraController.sourceType = .camera
+            cameraController.cameraCaptureMode = .photo
+            cameraController.delegate = self
+            cameraController.allowsEditing = true
+            self.present(cameraController, animated: true, completion: nil)
+        }
+    }
+    
+    // Is called by the camera controller when it is done with its work
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            imgContactPicture.contentMode = .scaleAspectFit
+            imgContactPicture.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

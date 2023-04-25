@@ -455,7 +455,7 @@
                                 <rect key="frame" x="0.0" y="149" width="393" height="620"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-Aj-pFA">
-                                        <rect key="frame" x="8" y="0.0" width="373" height="307.66666666666669"/>
+                                        <rect key="frame" x="8" y="0.0" width="373" height="422.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qxp-5f-Ek3">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
@@ -593,6 +593,26 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="le3-LO-eA8">
+                                                <rect key="frame" x="0.0" y="322.66666666666669" width="373" height="100"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lTQ-kI-0bG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="9nO-cO-5PJ"/>
+                                                            <constraint firstAttribute="width" constant="100" id="xZ2-kZ-VEQ"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sud-XN-aYb">
+                                                        <rect key="frame" x="145" y="33" width="228" height="34.333333333333343"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Take Picture"/>
+                                                        <connections>
+                                                            <action selector="changePicture:" destination="DV2-yH-VbJ" eventType="touchUpInside" id="lCc-cc-y0s"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -619,6 +639,7 @@
                     <navigationItem key="navigationItem" title="Contact" id="LwX-Z9-XRX"/>
                     <connections>
                         <outlet property="btnChange" destination="dkt-EN-HHT" id="iPZ-fi-gwA"/>
+                        <outlet property="imgContactPicture" destination="lTQ-kI-0bG" id="Ygh-ye-nmd"/>
                         <outlet property="lblBirthdate" destination="JwD-oo-Bkv" id="aif-g3-qvb"/>
                         <outlet property="sgmtEditMode" destination="m5Y-k2-sLr" id="nIq-QK-vpv"/>
                         <outlet property="txtAddress" destination="lfA-Gw-Qx2" id="Dic-jk-JXS"/>

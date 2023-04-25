@@ -16,6 +16,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var lblBattery: UILabel!
     
     
+    
+    
+    
     let sortOrderItems: Array<String> = ["contactName", "city", "birthday"]
 
     override func viewDidLoad() {
@@ -86,6 +89,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
         print("Orientation: \(orientation)")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        UIDevice.current.isBatteryMonitoringEnabled = false
     }
     
     

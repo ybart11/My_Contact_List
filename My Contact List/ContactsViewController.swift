@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ContactsViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DateControllerDelegate {
     
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
@@ -22,7 +22,9 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
     @IBOutlet weak var imgContactPicture: UIImageView!
-        
+    @IBOutlet weak var lblCellPhone: UILabel!
+    
+    
     // Hold information about the Contact entity edited
     var currentContact: Contact?
     
@@ -64,6 +66,10 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         for textfield in textFields {
             textfield.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
     }
+        
+        // For calling number when pressing label above it
+        let longPress = UILongPressGestureRecognizer.init(target: self, action: #selector(callPhone(gesture:)))
+        lblCellPhone.addGestureRecognizer(longPress)
     }
         
     func textFieldShouldEndEditing (_ textField: UITextField) -> Bool {
@@ -182,5 +188,18 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             currentContact?.image = image.jpegData(compressionQuality: 1.0)
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: Calling Using Phone # Functions
+    
+    @objc func callPhone(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            let number = txtCell.text
+            if number!.count > 0 {
+                let url = NSURL(string: "telprompt://\(number!)")
+                UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+                print("Calling Phone Number: \(url!)")
+            }
+        }
     }
 }

@@ -50,6 +50,11 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             if currentContact!.birthday != nil {
                 lblBirthdate.text = formatter.string(from: currentContact!.birthday!)
             }
+            
+            // For image
+            if let imageData = currentContact?.image as? Data {
+                imgContactPicture.image = UIImage(data: imageData)
+            }
         }
         self.changeEditMode(self)
         
@@ -166,6 +171,15 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         if let image = info[.editedImage] as? UIImage {
             imgContactPicture.contentMode = .scaleAspectFit
             imgContactPicture.image = image
+            
+            
+            // To save image in database
+            if currentContact == nil {
+                let context = appDelegate.persistentContainer.viewContext
+                currentContact = Contact(context: context)
+            }
+            
+            currentContact?.image = image.jpegData(compressionQuality: 1.0)
         }
         dismiss(animated: true, completion: nil)
     }

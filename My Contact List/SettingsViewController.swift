@@ -12,6 +12,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var pckSortField: UIPickerView!
     @IBOutlet weak var swAscending: UISwitch!
     
+    
+    @IBOutlet weak var lblBattery: UILabel!
+    
+    
     let sortOrderItems: Array<String> = ["contactName", "city", "birthday"]
 
     override func viewDidLoad() {
@@ -20,6 +24,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Do any additional setup after loading the view.
         pckSortField.dataSource = self;
         pckSortField.delegate = self;
+        
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.batteryChanged), name: UIDevice.batteryStateDidChangeNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.batteryChanged), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
+        
+        self.batteryChanged()
         
     }
     
@@ -107,6 +119,29 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         let settings = UserDefaults.standard
         settings.set(sortField, forKey: Constants.kSortField)
         settings.synchronize() // Force saving
+    }
+    
+    @objc func batteryChanged() {
+        let device = UIDevice.current
+        var batteryState: String
+        
+        switch(device.batteryState) {
+        case .charging:
+            batteryState = "+"
+        case .full:
+            batteryState = "!"
+        case .unplugged:
+            batteryState = "-"
+        case .unknown:
+            batteryState = "?"
+        @unknown default:
+            fatalError()
+        }
+        
+        let batteryLevelPercent = device.batteryLevel * 100
+        let batteryLevel = String(format: "%.0f%%", batteryLevelPercent)
+        let batteryStatus = "\(batteryLevel) (\(batteryState))"
+        lblBattery.text = batteryStatus
     }
     
 
